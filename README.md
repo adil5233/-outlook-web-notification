@@ -1,2 +1,2 @@
 # outlook-web-notification
-outlook-web-notification for shared mailboxes
+outlook-web-notification for shared mailboxes based on JavaScript
