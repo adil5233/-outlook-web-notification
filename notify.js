@@ -4,7 +4,7 @@ function showNotification() {
         Notification.requestPermission();
     } else {
         const options = {
-            body: document.querySelector("div > div > div > div._1bVZQZoqR8bXQm6sTkfm1W > div._26iAJd-QwDtChfxfbDGH7F > div > span").innerText,
+            body: document.querySelector("div > div > div > div > div._26iAJd-QwDtChfxfbDGH7F > div > span").innerText,
             dir: 'ltr',
             image: 'todo.jpg',
         };
