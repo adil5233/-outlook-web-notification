@@ -1,7 +1,19 @@
 // Add check for notification access.
-if (Notification.permission !== 'granted') {
-    Notification.requestPermission();
- }
+function showNotification() {
+    if (Notification.permission !== 'granted') {
+        Notification.requestPermission();
+    } else {
+        const options = {
+            body: document.querySelector("div > div > div > div._1bVZQZoqR8bXQm6sTkfm1W > div._26iAJd-QwDtChfxfbDGH7F > div > span").innerText,
+            dir: 'ltr',
+            image: 'todo.jpg',
+        };
+        const notification = new Notification('Outlook Mail', options);
+        notification.onclick = function () {
+            window.open('https://www.example.com');
+        };
+    }
+}
 
 
 function delay() {
@@ -39,7 +51,8 @@ setInterval(function () {
 
             var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
 
-            window.speechSynthesis.speak(msg);  
+            window.speechSynthesis.speak(msg);
+            showNotification();
 
         }
 
