@@ -40,9 +40,16 @@ var timer = 40000;
 setInterval(function () {
 
     (async () => {
-
-        t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
-        mail_cont = parseInt(t1);
+        
+        
+        try {
+            t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
+            mail_cont = parseInt(t1);
+        }
+        
+        catch(err) {
+           console.log('no new messages');
+        }
 
         await delay();
 
