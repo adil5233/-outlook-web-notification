@@ -1,3 +1,9 @@
+// Add check for notification access.
+if (Notification.permission !== 'granted') {
+    Notification.requestPermission();
+ }
+
+
 function delay() {
 
     return new Promise((resolve, reject) => {
