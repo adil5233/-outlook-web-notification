@@ -7,6 +7,7 @@ function showNotification() {
             body: document.querySelector("div > div > div > div > div._26iAJd-QwDtChfxfbDGH7F > div > span").innerText,
             dir: 'ltr',
             image: 'todo.jpg',
+            requireInteraction: true,
         };
         const notification = new Notification('Outlook Mail', options);
         notification.onclick = function () {
