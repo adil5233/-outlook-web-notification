@@ -4,7 +4,7 @@ function showNotification() {
         Notification.requestPermission();
     } else {
         const options = {
-            body: document.querySelector("div > div > div > div > div._26iAJd-QwDtChfxfbDGH7F > div > span").innerText,
+            body: document.querySelector("div > div > div > div > div._2l2rlI1lryU9nyNZ77G2yv > div > span").innerText,
             dir: 'ltr',
             image: 'todo.jpg',
             requireInteraction: true,
