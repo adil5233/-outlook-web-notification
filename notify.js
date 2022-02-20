@@ -1,7 +1,7 @@
 // Add check for notification access.
 if (Notification.permission !== 'granted') {
     Notification.requestPermission();
- }
+}
 
 function showNotification() {
     if (Notification.permission !== 'granted') {
@@ -20,9 +20,16 @@ function showNotification() {
     }
 }
 
+function delay() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('resolved');
+      }, 10000);
+    });
+}
 
-function checkCount() {
 
+async function checkCount() {
     try {
         t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
         mail_cont = parseInt(t1);
@@ -37,17 +44,16 @@ function checkCount() {
         var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
         window.speechSynthesis.speak(msg);
         showNotification();
+        await delay();
     }
+    
     
 }
 
 javascript: ! function () {
 
 setInterval(() => {
-
     checkCount();
-    
-}, 20000);
-
+}, 30000);
 
 }();
