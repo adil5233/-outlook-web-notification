@@ -1,4 +1,8 @@
 // Add check for notification access.
+if (Notification.permission !== 'granted') {
+    Notification.requestPermission();
+ }
+
 function showNotification() {
     if (Notification.permission !== 'granted') {
         Notification.requestPermission();
@@ -17,55 +21,33 @@ function showNotification() {
 }
 
 
-function delay() {
+function checkCount() {
 
-    return new Promise((resolve, reject) => {
+    try {
+        t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
+        mail_cont = parseInt(t1);
+    }
+    
+    catch(err) {
+       mail_cont = 0;
+    }
 
-        setTimeout(resolve, 800);
-
-    });
-
-}
-
-function sleep(ms) {
-
-    return new Promise(resolve => setTimeout(resolve, ms));
-
+    if (mail_cont > 0) {
+        console.log(mail_cont);
+        var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
+        window.speechSynthesis.speak(msg);
+        showNotification();
+    }
+    
 }
 
 javascript: ! function () {
 
-var timer = 40000;
+setInterval(() => {
 
-setInterval(function () {
+    checkCount();
+    
+}, 20000);
 
-    (async () => {
-        
-        
-        try {
-            t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
-            mail_cont = parseInt(t1);
-        }
-        
-        catch(err) {
-           console.log('no new messages');
-        }
-
-        await delay();
-
-        if (mail_cont > 0) {
-
-            console.log(mail_cont);
-
-            var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
-
-            window.speechSynthesis.speak(msg);
-            showNotification();
-
-        }
-
-    })();
-
-}, timer);
 
 }();
