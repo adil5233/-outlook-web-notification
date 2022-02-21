@@ -20,16 +20,7 @@ function showNotification() {
     }
 }
 
-function delay() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('resolved');
-      }, 10000);
-    });
-}
-
-
-async function checkCount() {
+function checkCount() {
     try {
         t1 = document.querySelector("div > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(1) > div > span > span > span").innerText;
         mail_cont = parseInt(t1);
@@ -44,10 +35,7 @@ async function checkCount() {
         var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
         window.speechSynthesis.speak(msg);
         showNotification();
-        await delay();
-    }
-    
-    
+    } 
 }
 
 javascript: ! function () {
