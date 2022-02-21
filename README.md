@@ -11,5 +11,4 @@ Note: Tested in Chrome only.
 
 TO-DO List:
 
-1. Optimise Code
-2. Pop-up Notification Support
+1. Add Action buttons
