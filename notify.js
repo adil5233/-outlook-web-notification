@@ -2,6 +2,8 @@
 if (Notification.permission !== 'granted') {
     Notification.requestPermission();
 }
+//Add notify boolen logic
+notify = true;
 
 function showNotification() {
     if (Notification.permission !== 'granted') {
@@ -27,14 +29,16 @@ function checkCount() {
     }
     
     catch(err) {
-       mail_cont = 0;
+        mail_cont = 0;
+        notify = true;
     }
 
-    if (mail_cont > 0) {
+    if (mail_cont > 0 && notify) {
         console.log(mail_cont);
         var msg = new SpeechSynthesisUtterance('incoming mail' + mail_cont);
         window.speechSynthesis.speak(msg);
         showNotification();
+        notify = false;
     } 
 }
 
